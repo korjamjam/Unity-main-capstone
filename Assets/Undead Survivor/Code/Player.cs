@@ -17,26 +17,25 @@ public class Player : MonoBehaviour
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
     }
-    // Update is called once per frame
-    /*void Update() // 1번째 input 방법
+    void Update() // 1번째 input 방법
     {
         inputVec.x = Input.GetAxisRaw("Horizontal");//Raw 붙여서 깔끔하게 움직임 가능
         inputVec.y = Input.GetAxisRaw("Vertical");
-    }*/
+    }
     private void FixedUpdate()
     {
         //대각선도 같이 * speed * 물리 프레임 하나가 소비한 시간
         // inputVec.normalized 2번째는 noraml 뺌
-        Vector2 nextVec = inputVec * speed * Time.fixedDeltaTime;
+        Vector2 nextVec = inputVec.normalized * speed * Time.fixedDeltaTime;
         //3. 위치 이동
         rigid.MovePosition(rigid.position + nextVec);
     }
-
+    /*
     void OnMove(InputValue value)
     {
         inputVec = value.Get<Vector2>();
     }
-
+    */
     private void LateUpdate()
     {
         anim.SetFloat("Speed",inputVec.magnitude);//순순히 크기의 값
