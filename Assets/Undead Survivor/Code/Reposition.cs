@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
+    Collider2D coll;
+    void Awake()
+    {
+        coll = GetComponent<Collider2D>();
+    }
     void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Area"))
@@ -31,7 +36,10 @@ public class Reposition : MonoBehaviour
                 }
                 break;
             case "Enemy":
-
+                if(coll.enabled)
+                {
+                    transform.Translate(playerDir * 20 + new Vector3(Random.Range(-3f,3f), Random.Range(-3f, 3f),0f));// 숫자가 낮아지면 플레이어 바로 앞에 나올 수 있음, 20은 맵 크기
+                }
                 break;
         }
 
