@@ -75,7 +75,7 @@ public class Weapon : MonoBehaviour
         for(int index = 0; index < count; index++)
         {
             Transform bullet; //기존 오브젝트를 먼저 활용, 모자란 것은 풀링에서 가져옴
-            if(index < transform.childCount)
+            if(index < transform.childCount) // 기존 근접무기 재활용
             {
                 bullet = transform.GetChild(index);
             }

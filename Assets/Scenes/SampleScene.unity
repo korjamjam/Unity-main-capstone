@@ -9259,6 +9259,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 3890419377036635454, guid: 70a80d7141f97da43934faeff1955e45, type: 3}
   - {fileID: 8521479176571802392, guid: 7662540232316ee45b3032f0e7c5439e, type: 3}
+  - {fileID: 7801656639447899005, guid: d39adf21f7f28b040ad131702c8b9784, type: 3}
 --- !u!4 &831758049
 Transform:
   m_ObjectHideFlags: 0
@@ -9625,6 +9626,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 148606825}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1280215240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280215241}
+  - component: {fileID: 1280215242}
+  m_Layer: 0
+  m_Name: Weapon 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1280215241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280215240}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1766799136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1280215242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280215240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfa312699d85443479ed910233a5d38a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  prefabId: 2
+  damage: 3
+  count: 1
+  speed: 0
 --- !u!1 &1348228849
 GameObject:
   m_ObjectHideFlags: 0
@@ -14131,7 +14181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   prefabId: 1
-  damage: 11
+  damage: 5
   count: 2
   speed: 0
 --- !u!1 &1766799132
@@ -14288,6 +14338,7 @@ Transform:
   - {fileID: 1373431510}
   - {fileID: 148606825}
   - {fileID: 1612849894}
+  - {fileID: 1280215241}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1766799137
@@ -14304,6 +14355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputVec: {x: 0, y: 0}
   speed: 4
+  scanner: {fileID: 0}
 --- !u!114 &1766799138
 MonoBehaviour:
   m_ObjectHideFlags: 0
