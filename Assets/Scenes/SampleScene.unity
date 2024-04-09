@@ -4516,6 +4516,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameTime: 0
   maxGameTime: 20
+  level: 0
+  kill: 0
+  exp: 0
+  nextExp: 0a0000001e0000003c0000006400000096000000d20000001801000068010000c201000058020000
   pool: {fileID: 831758048}
   player: {fileID: 1766799137}
 --- !u!4 &173195006
@@ -9673,7 +9677,7 @@ MonoBehaviour:
   id: 1
   prefabId: 2
   damage: 3
-  count: 1
+  count: 0
   speed: 0
 --- !u!1 &1348228849
 GameObject:
@@ -14419,7 +14423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86063ed566ef1234a8f6bab09a6cc5ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scanRange: 5
+  scanRange: 7
   targetLayer:
     serializedVersion: 2
     m_Bits: 64

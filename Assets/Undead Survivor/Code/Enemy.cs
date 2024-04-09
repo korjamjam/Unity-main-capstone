@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     bool isLive;
 
     Rigidbody2D rigid;
+    Collider2D coll;
     Animator anim;
     SpriteRenderer spriter;
     WaitForFixedUpdate wait;
@@ -21,6 +22,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
+        coll = GetComponent<Collider2D>();
         anim = GetComponent<Animator>();
         spriter = GetComponent<SpriteRenderer>();
         wait = new WaitForFixedUpdate();
@@ -48,7 +50,11 @@ public class Enemy : MonoBehaviour
     void OnEnable()
     {
         target = GameManager.Instance.player.GetComponent<Rigidbody2D>();
-        isLive = true;
+        isLive = true; // 5줄 재활용 위해 ontrigger에서 가져옴
+        coll.enabled = true; 
+        rigid.simulated = true; 
+        spriter.sortingOrder = 2; // sprite Renderer에서 order in layer와 같다, 보여지는 단계?
+        anim.SetBool("Dead", false); 
         health = maxHealth;
     }
 
@@ -62,7 +68,7 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.CompareTag("Bullet"))
+        if (!collision.CompareTag("Bullet") || !isLive)
             return;
 
         health -= collision.GetComponent<Bullet>().damage;
@@ -76,7 +82,13 @@ public class Enemy : MonoBehaviour
         else
         {
             //Die
-            Dead();
+            isLive = false;
+            coll.enabled = false;//컴포넌트 비활성화
+            rigid.simulated = false; //물리를 시뮬레이션 안하는 것
+            spriter.sortingOrder = 1; // sprite Renderer에서 order in layer와 같다, 보여지는 단계?
+            anim.SetBool("Dead",true); // 죽는 애니메이션, bool인 dead - true 여서
+            GameManager.Instance.kill++;
+            GameManager.Instance.Getexp();
         }
 
     }
