@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Reposition : MonoBehaviour
 {
-    Collider2D coll;
+    Collider2D coll; //  물리 충돌 처리를 위한 오브젝트
     void Awake()
     {
         coll = GetComponent<Collider2D>();
@@ -36,7 +36,7 @@ public class Reposition : MonoBehaviour
                 }
                 break;
             case "Enemy":
-                if(coll.enabled)
+                if(coll.enabled) // coll 활성화?
                 {
                     transform.Translate(playerDir * 20 + new Vector3(Random.Range(-3f,3f), Random.Range(-3f, 3f),0f));// 숫자가 낮아지면 플레이어 바로 앞에 나올 수 있음, 20은 맵 크기
                 }

@@ -9,10 +9,12 @@ public class GameManager : MonoBehaviour
     public float gameTime;
     public float maxGameTime = 2 * 10f;
     [Header("# Player Info")]
+    public int health;
+    public int maxHealth = 100;
     public int level;
     public int kill;
     public int exp;
-    public int[] nextExp = { 5, 10, 20, 100, 150, 210, 280, 360, 450, 600 };//레벨 경험치
+    public int[] nextExp = { 5, 10, 20, 50, 70, 100, 140, 200, 300, 500 };//레벨 경험치 / public 사용시 처음 값만 적용
     [Header("# GameObject")]
     public PoolManager pool;
     public Player player;
@@ -20,6 +22,11 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
+
+    private void Start()
+    {
+        health = maxHealth;
     }
     void Update()
     {

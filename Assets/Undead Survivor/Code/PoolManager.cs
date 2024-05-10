@@ -24,7 +24,7 @@ public class PoolManager : MonoBehaviour
     {
         GameObject select = null;
         // 선택한 풀의 놀고 있는 (비활성화 된) 게임 오브젝트 접근
-           // 발견하면 select 변수에 할당
+          
         foreach(GameObject item in pools[index])//배열,리스트를의 데이터를 순차적으로 접근하는 반복문
         {
             if (!item.activeSelf)
@@ -39,7 +39,7 @@ public class PoolManager : MonoBehaviour
         if(!select)
         {
             // 새롭게 생성해서 select 변수에 할당
-            select = Instantiate(prefabs[index], transform);
+            select = Instantiate(prefabs[index], transform); // 원본 오브젝트를 복제하여 장면에 생성하는 함수
             pools[index].Add(select); //pool에 등록
         }
         return select;
