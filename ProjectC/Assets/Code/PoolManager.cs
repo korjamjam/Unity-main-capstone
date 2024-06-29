@@ -39,11 +39,6 @@ public class PoolManager : MonoBehaviour
             select = Instantiate(prefabs[index], transform); // 원본 오브젝트를 복제하여 장면에 생성하는 함수
             pools[index].Add(select); //pool에 등록
         }
-
-
             return select;
     }
-
-
-
 }
